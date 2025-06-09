@@ -1,4 +1,7 @@
 /* Reset básico */
+.profile{border-radius: 50% !important;
+width: 40%;}
+
 * {
   margin: 0;
   padding: 0;
@@ -228,6 +231,7 @@ h3 {
   height: 100px;
 }
 
+
 /* Footer */
 .footer {
   text-align: center;
@@ -240,4 +244,35 @@ h3 {
 .small{
   font-size: 0.8rem;
   font-style: italic;
+}
+
+/* Sobre mí con imagen flotante */
+.sobre-mi-container {
+  display: block; /* desactiva el flex vertical del container general */
+}
+
+.profile-float {
+  float: right;
+  width: 250px;
+  max-width: 40%;
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Asegura que el texto no se encime y se adapte */
+.text-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .profile-float {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 80%;
+  }
 }
