@@ -3,30 +3,39 @@ const timeline1 = gsap.timeline();
 const timeline2 = gsap.timeline();
 
 // === ANIMACIÓN DE ELEMENTOS INICIALES ===
-let animations = [
+let animations1 = [
   ".navbar",
-  ".logo",
-  "#sobremi",
-  "#programacionnav",
-  "#disenonav"
+  ".logo"
 ];
 
-animations.forEach(animation => {
+let animations2 =["#sobremi",
+  "#programacionnav",
+  "#disenonav"]
+
+animations1.forEach(animation => {
   timeline1.from(animation, {
   x: -1000,
   duration: 1,
   opacity: 0,
   stagger: 0.15,
   ease: "power2.out"
-});
+})});
 
-});
+if (window.innerWidth > 580) {
+  animations2.forEach(animation => {
+  timeline1.from(animation, {
+  x: -1000,
+  duration: 1,
+  opacity: 0,
+  stagger: 0.15,
+  ease: "power2.out"
+})});
 
 timeline1.from(".profile-float",{
     x:1000,
     duration: 1
 })
-
+}
 
 // === HOVER LOGO ===
 $(".logo").hover(
