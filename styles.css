@@ -1,6 +1,8 @@
 /* Reset básico */
-.profile{border-radius: 50% !important;
-width: 40%;}
+.profile {
+  border-radius: 50% !important;
+  width: 40%;
+}
 
 * {
   margin: 0;
@@ -11,18 +13,21 @@ width: 40%;}
 body {
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
-  color: #222;
-  background-color: #f4f4f4;
+  color: #f4f4f4; /* texto claro */
+  background-color: #0f0f0f; /* fondo oscuro profesional */
 }
 
 /* Navbar */
 .navbar {
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #121212; /* un negro carbón, distinto al fondo */
+  color: #f4f4f4;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 2px solid #00bcd4; /* línea de acento */
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.25);
 }
 
 .nav-container {
@@ -38,6 +43,7 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #00bcd4; /* acento cyan */
 }
 
 #logoPequeño {
@@ -52,34 +58,45 @@ body {
 }
 
 .nav-links a {
-  color: #fff;
-  text-decoration: underline;
+  color: #f4f4f4;
+  text-decoration: none;
   transition: color 0.3s;
   white-space: nowrap;
   padding: 0.5rem 1rem;
 }
 
 .nav-links a:hover {
-  color: #fdb813;
+  color: #00bcd4; /* acento cyan */
 }
 
 /* Responsive intermedio: max 580px */
 @media (max-width: 580px) {
   .nav-container {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
   }
 
   .nav-links {
     flex-direction: column;
+    width: 100%;
     align-items: center;
     gap: 0.5rem;
     padding-top: 0.5rem;
+    display: none; /* oculto por defecto para toggle JS */
   }
 
-  .logo {
-    font-size: 1.2rem;
+  .nav-links.visible {
+    display: flex; /* visible cuando JS agrega esta clase */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #00bcd4; /* acento cyan */
+    cursor: pointer;
   }
 
   #logoGrande {
@@ -88,6 +105,7 @@ body {
 
   #logoPequeño {
     display: inline-block;
+    color: #00bcd4;
   }
 
   .navbar {
@@ -98,7 +116,7 @@ body {
 /* Secciones */
 .section {
   padding: 4rem 2rem;
-  background-color: #fff;
+  background-color: #1e1e1e; /* fondo gris carbón */
   scroll-margin-top: 100px;
 }
 
@@ -114,17 +132,19 @@ body {
 h2 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #2c2c2c; /* borde gris oscuro */
   padding-bottom: 0.5rem;
   width: 100%;
   max-width: 1000px;
+  color: #00bcd4; /* acento cyan */
 }
 
 h3 {
   margin-top: 1rem;
   font-size: 1rem;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #2c2c2c;
   padding-bottom: 0.5rem;
+  color: #00bcd4; /* acento cyan */
 }
 
 /* Grid de proyectos */
@@ -146,8 +166,8 @@ h3 {
 
 /* Card general */
 .card {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
+  background-color: #121212; /* fondo más oscuro que sección */
+  border: 1px solid #2c2c2c; /* borde suave */
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -157,12 +177,13 @@ h3 {
   flex-direction: column;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 1rem;
+  color: #f4f4f4;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 188, 212, 0.25); /* sombra cyan */
 }
 
 /* Imagen con hover dinámico */
@@ -231,19 +252,21 @@ h3 {
   height: 100px;
 }
 
-
 /* Footer */
 .footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #121212; /* igual que navbar para balance */
+  color: #fdb813;
   font-size: 0.9rem;
+  padding: 2rem;
+  border-top: 2px solid #fdb813; /* línea de acento amarillo */
+  box-shadow: 0 -2px 8px rgba(253, 184, 19, 0.3); /* sombra amarilla suave */
+  text-align: center;
 }
 
-.small{
+.small {
   font-size: 0.8rem;
   font-style: italic;
+  color: #ccc; /* texto secundario */
 }
 
 /* Sobre mí con imagen flotante */
@@ -258,7 +281,12 @@ h3 {
   border-radius: 8px;
   margin-left: 20px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-float:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 100);
 }
 
 /* Asegura que el texto no se encime y se adapte */
@@ -268,11 +296,161 @@ h3 {
   clear: both;
 }
 
+/* Responsive imagen perfil */
 @media (max-width: 768px) {
   .profile-float {
     float: none;
     display: block;
     margin: 0 auto 1rem;
     width: 80%;
+  }
+}
+
+/* Links nav específicos para no romper layout */
+#sobremi, #programacionnav, #disenonav {
+  display: inline-block;
+}
+
+/* NAV CONTAINER */
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LOGO */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bcd4; /* acento cyan */
+}
+
+#logoPequeño {
+  display: none;
+}
+
+/* NAV LINKS en escritorio */
+@media (min-width: 581px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+  display: none; /* sigue oculto en escritorio */
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 150; /* para que esté encima */
+}
+
+/* Las 3 barras del hamburguesa */
+.menu-toggle .bar {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #00bcd4;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Posición de cada barra */
+.menu-toggle .bar1 {
+  top: 0;
+}
+
+.menu-toggle .bar2 {
+  top: 9px;
+}
+
+.menu-toggle .bar3 {
+  top: 18px;
+}
+
+/* Mostrar botón en móvil */
+@media (max-width: 580px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.menu-toggle.active .bar1 {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.menu-toggle.active .bar2 {
+  opacity: 0;
+  left: -60px;
+}
+
+.menu-toggle.active .bar3 {
+  transform: rotate(-45deg);
+  top: 9px;
+}
+
+
+/* NAV LINKS en móvil */
+@media (max-width: 580px) {
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    display: none; /* oculto por defecto para toggle JS */
+  }
+
+  .nav-links.visible {
+    display: flex; /* visible cuando JS agrega esta clase */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #00bcd4; /* acento cyan */
+    cursor: pointer;
+  }
+
+  #logoGrande {
+    display: none;
+  }
+
+  #logoPequeño {
+    display: inline-block;
+    color: #00bcd4;
+  }
+
+  .navbar {
+    padding: 0.5rem 0;
   }
 }
